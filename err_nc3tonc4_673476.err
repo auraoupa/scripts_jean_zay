@@ -1,0 +1,340 @@
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+
+
+ Convert a netCDF 3 file to netCDF 4 format, optionally
+ unpacking variables packed as short integers (with scale_factor and add_offset)
+ to floats, and adding zlib compression (with the HDF5 shuffle filter and fletcher32 checksum).
+ Data may also be quantized (truncated) to a specified precision to improve compression.
+
+ usage: nc3tonc4 [-h/--help] [-o] [--vars=var1,var2,..] [--zlib=(0|1)] [--complevel=(1-9)] [--shuffle=(0|1)] [--fletcher32=(0|1)] [--unpackshort=(0|1)] [--quantize=var1=n1,var2=n2,..] netcdf3filename netcdf4filename
+ -h/--help -- Print usage message.
+ -o -- Overwrite destination file (default is to raise an error if output file already exists).
+ --vars -- comma separated list of variable names to copy (default is to copy
+    all variables)
+ --classic=(0|1) -- use NETCDF4_CLASSIC format instead of NETCDF4 (default 1)
+ --zlib=(0|1) -- Activate (or disable) zlib compression (default is activate).
+ --complevel=(1-9) -- Set zlib compression level (6 is default).
+ --shuffle=(0|1) -- Activate (or disable) the shuffle filter (active by default).
+ --fletcher32=(0|1) -- Activate (or disable) the fletcher32 checksum (not
+     active by default).
+ --unpackshort=(0|1) -- Unpack short integer variables to float variables
+     using scale_factor and add_offset netCDF variable attributes (active by default).
+ --quantize=(comma separated list of "variable name=integer" pairs) --
+     Truncate the data in the specified variables to a given decimal precision.
+     For example, 'speed=2, height=-2, temp=0' will cause the variable
+     'speed' to be truncated to a precision of 0.01, 'height' to a precision of 100
+     and 'temp' to 1. This can significantly improve compression. The default
+     is not to quantize any of the variables.
+ --quiet=(0|1)  -- if 1, don't print diagnostic information.
+ --chunk=(integer) -- number of records along unlimited dimension to
+     write at once.  Default 10.  Ignored if there is no unlimited
+     dimension.  chunk=0 means write all the data at once.
+ --istart=(integer) -- number of record to start at along unlimited dimension.
+     Default 0.  Ignored if there is no unlimited dimension.
+ --istop=(integer) -- number of record to stop at along unlimited dimension.
+     Default -1.  Ignored if there is no unlimited dimension.
+

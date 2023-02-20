@@ -1,0 +1,2 @@
+/var/spool/slurmd/job588735/slurm_script: line 19: cd: /gpfsstore/rech/cli/rote001/NANUK12/NANUK12_IVE-EVP00-S: No such file or directory
+ls: cannot access '*/*nc': No such file or directory
